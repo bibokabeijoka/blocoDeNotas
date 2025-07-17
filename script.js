@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const salvanota = document.getElementById('salvanota');
     const aumentaFonte = document.getElementById('persoNota');
     const persoDiminui = document.getElementById('persoDiminui');
+    const modoEscuro = document.getElementById('modoEscuro');
+
+    
+    modoEscuro.addEventListener('click', () => {
+        // Alterna entre os modos escuro e claro adicionando ou removendo uma classe no body
+        document.body.classList.toggle('modo-escuro');
+    
+        // Opcional: salva a preferência do usuário
+        const estaEmModoEscuro = document.body.classList.contains('modo-escuro');
+        localStorage.setItem('modoEscuro', estaEmModoEscuro ? 'ativado' : 'desativado');
+    
+        console.log(`Modo escuro ${estaEmModoEscuro ? 'ativado' : 'desativado'}`);
+    });
+    
 
     aumentaFonte.addEventListener('click', () => {
         const estiloAtual = window.getComputedStyle(blocoDeNotas).fontSize;
